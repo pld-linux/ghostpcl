@@ -1,11 +1,11 @@
---- /home/users/hunter/backups/pjparse.c~	2002-10-17 01:28:22.000000000 +0200
-+++ pl/pjparse.c	2003-12-18 20:41:49.000000000 +0100
+--- ghostpcl_1.38p1/pl/pjparse.c.orig	2002-10-17 01:28:22.000000000 +0200
++++ ghostpcl_1.38p1/pl/pjparse.c	2003-12-18 20:41:49.000000000 +0100
 @@ -107,7 +107,7 @@
     there is some unnecessary overlap in the factory default and font
     source table. */
  private const pjl_fontsource_t pjl_fontsource_table[] = {
 -    { "I", "fonts/;/windows/system/;/windows/fonts/;/win95/fonts/;/winnt/fonts/" },
-+    { "I", "/usr/lib/ghostpcl/fonts/;/windows/system/;/windows/fonts/;/win95/fonts/;/winnt/fonts/" },
++    { "I", "/usr/share/ghostpcl/fonts/;/usr/share/fonts/TTF/" },
      { "C", "CART0/", "" },
      { "C1", "CART1/", "" },
      { "C2", "CART2/", "" },
