@@ -1,0 +1,39 @@
+--- ghostpcl_1.38p1/gs/src/ugcclib.mak.orig	2002-06-13 01:18:14.000000000 +0200
++++ ghostpcl_1.38p1/gs/src/ugcclib.mak	2003-12-25 18:26:48.504185696 +0100
+@@ -67,10 +67,7 @@
+ GCFLAGS_WARNINGS=-Wall -Wcast-qual -Wpointer-arith -Wstrict-prototypes -Wwrite-strings
+ GCFLAGS=$(GCFLAGS_NO_WARN) $(GCFLAGS_WARNINGS)
+ XCFLAGS=
+-CFLAGS_STANDARD=-O2
+-CFLAGS_DEBUG=-g -O
+-CFLAGS_PROFILE=-pg -O2
+-CFLAGS=$(CFLAGS_DEBUG) $(GCFLAGS) $(XCFLAGS)
++CFLAGS=$(OPTFLAGS) $(GCFLAGS) $(XCFLAGS)
+ LDFLAGS=$(XLDFLAGS)
+ STDLIBS=-lm
+ EXTRALIBS=
+--- ghostpcl_1.38p1/main/pcl6_gcc.mak.orig	2002-11-22 22:20:25.000000000 +0100
++++ ghostpcl_1.38p1/main/pcl6_gcc.mak	2003-12-25 18:28:49.802745512 +0100
+@@ -16,10 +16,11 @@
+ MAINSRCDIR=../main
+ 
+ # specify the location of zlib.  We use zlib for bandlist compression.
+-ZSRCDIR=../gs/zlib
++ZSRCDIR=../gs/zlib
+ ZGENDIR=$(GENDIR)
+ ZOBJDIR=$(GENDIR)
+-SHARE_ZLIB=0
++SHARE_ZLIB=1
++ZLIB_NAME=z
+ 
+ 
+ # specify the locate of the jpeg library.
+@@ -99,7 +99,7 @@
+ # Note that the omission of -Dconst= rules out the use of gcc versions
+ # between 2.7.0 and 2.7.2 inclusive.  (2.7.2.1 is OK.)
+ GCFLAGS=-Wall -Wpointer-arith -Wstrict-prototypes -Wwrite-strings
+-CFLAGS=-g -O0 $(GCFLAGS) $(XCFLAGS)
++CFLAGS=$(OPTFLAGS) $(GCFLAGS) $(XCFLAGS)
+ 
+ XINCLUDE=-I/usr/local/X/include
+ XLIBDIRS=-L/usr/X11/lib -L/usr/X11R6/lib
