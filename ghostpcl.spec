@@ -28,7 +28,7 @@ za³±czonej do pakietu.
 Summary:	URW fonts in TTF format for GhostPCL
 Summary(pl):	Fonty URW w formacie TTF dla GhostPCL-a
 Group:		Applications/Graphics
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description urwfonts
 URW fonts in TTF format for GhostPCL.
