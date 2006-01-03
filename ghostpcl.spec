@@ -5,6 +5,7 @@ Version:	1.38p1
 Release:	1
 License:	Alladin Free Public License (see Public.htm)
 Group:		Applications/Graphics
+#Source0Download: http://www.artifex.com/downloads/
 Source0:	ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/AFPL/GhostPCL/%{name}_%{version}.tar.gz
 # Source0-md5:	5067678a6b3b682423f74c92b5c82013
 Patch0:		%{name}-fonts_locations.patch
