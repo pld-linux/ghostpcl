@@ -1,5 +1,5 @@
 Summary:	PostScript & PDF interpreter and renderer
-Summary(pl):	Interpreter i renderer PostScriptu i PDF
+Summary(pl.UTF-8):   Interpreter i renderer PostScriptu i PDF
 Name:		ghostpcl
 Version:	1.38p1
 Release:	1
@@ -20,21 +20,21 @@ GhostPCL is Artifex Software's implementation of the PCL-5(TM) and
 PCL-XL(TM) family of page description languages. For more information
 please see the documentation included with the source package.
 
-%description -l pl
-GhostPCL jest implementacj± jêzyków z rodzin PCL-5(TM) i PCL-XL(TM)
-opisuj±cych stronê. Wiêcej informacji znajduje siê w dokumentacji
-za³±czonej do pakietu.
+%description -l pl.UTF-8
+GhostPCL jest implementacjÄ… jÄ™zykÃ³w z rodzin PCL-5(TM) i PCL-XL(TM)
+opisujÄ…cych stronÄ™. WiÄ™cej informacji znajduje siÄ™ w dokumentacji
+zaÅ‚Ä…czonej do pakietu.
 
 %package urwfonts
 Summary:	URW fonts in TTF format for GhostPCL
-Summary(pl):	Fonty URW w formacie TTF dla GhostPCL-a
+Summary(pl.UTF-8):   Fonty URW w formacie TTF dla GhostPCL-a
 Group:		Applications/Graphics
 Requires:	%{name} = %{version}-%{release}
 
 %description urwfonts
 URW fonts in TTF format for GhostPCL.
 
-%description urwfonts -l pl
+%description urwfonts -l pl.UTF-8
 Fonty URW w formacie TTF dla GhostPCL-a.
 
 %prep
