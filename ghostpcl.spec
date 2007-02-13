@@ -1,5 +1,5 @@
 Summary:	PostScript & PDF interpreter and renderer
-Summary(pl.UTF-8):   Interpreter i renderer PostScriptu i PDF
+Summary(pl.UTF-8):	Interpreter i renderer PostScriptu i PDF
 Name:		ghostpcl
 Version:	1.38p1
 Release:	1
@@ -27,7 +27,7 @@ załączonej do pakietu.
 
 %package urwfonts
 Summary:	URW fonts in TTF format for GhostPCL
-Summary(pl.UTF-8):   Fonty URW w formacie TTF dla GhostPCL-a
+Summary(pl.UTF-8):	Fonty URW w formacie TTF dla GhostPCL-a
 Group:		Applications/Graphics
 Requires:	%{name} = %{version}-%{release}
 
