@@ -3,8 +3,8 @@
 @@ -107,7 +107,7 @@
     there is some unnecessary overlap in the factory default and font
     source table. */
- private const pjl_fontsource_t pjl_fontsource_table[] = {
--    { "I", "fonts/;/windows/system/;/windows/fonts/;/win95/fonts/;/winnt/fonts/" },
+ static const pjl_fontsource_t pjl_fontsource_table[] = {
+-    { "I", "fonts/;urwfonts/;/windows/fonts/;/win95/fonts/;/winnt/fonts/" },
 +    { "I", "/usr/share/ghostpcl/fonts/;/usr/share/fonts/TTF/" },
      { "C", "CART0/", "" },
      { "C1", "CART1/", "" },
