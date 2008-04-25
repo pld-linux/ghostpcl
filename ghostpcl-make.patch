@@ -8,36 +8,40 @@
 -CFLAGS_DEBUG=-g -O
 -CFLAGS_PROFILE=-pg -O2
 -CFLAGS=$(CFLAGS_DEBUG) $(GCFLAGS) $(XCFLAGS)
-+CFLAGS=$(OPTFLAGS) $(GCFLAGS) $(XCFLAGS)
++CFLAGS=$(GCFLAGS) $(XCFLAGS)
  LDFLAGS=$(XLDFLAGS)
  STDLIBS=-lm
  EXTRALIBS=
 --- ghostpcl_1.38p1/main/pcl6_gcc.mak.orig	2002-11-22 22:20:25.000000000 +0100
 +++ ghostpcl_1.38p1/main/pcl6_gcc.mak	2003-12-25 18:28:49.802745512 +0100
-@@ -16,7 +16,7 @@
+@@ -16,8 +16,8 @@
  ZSRCDIR?=../gs/zlib
  ZGENDIR?=$(GENDIR)
  ZOBJDIR?=$(GENDIR)
 -SHARE_ZLIB?=0
+-SHARE_LIBPNG?=0
 +SHARE_ZLIB?=1
- SHARE_LIBPNG?=0
++SHARE_LIBPNG?=1
  
  PNGSRCDIR?=../gs/libpng
-@@ -99,7 +99,7 @@
- 
- GCFLAGS?=-Wall -Wpointer-arith -Wstrict-prototypes -Wwrite-strings -DNDEBUG  $(HAVE_STDINT_H_DEFINE) $(HAVE_MKSTEMP_DEFINE) $(GX_COLOR_INDEX_DEFINE)
- # CFLAGS?=-g -O0 $(GCFLAGS) $(XCFLAGS)
--CFLAGS?= $(GCFLAGS) $(XCFLAGS)
-+CFLAGS?=$(OPTFLAGS) $(GCFLAGS) $(XCFLAGS)
- 
- XINCLUDE?=-I/usr/X11R6/include
- XLIBDIRS?=-L/usr/X11R6/lib
+ # only relevant if not shared
 @@ -207,7 +207,7 @@
  
  SYNC=posync
  # some systems may need -ldl as well as pthread
 -STDLIBS=-lm -lpthread -ldl
-+STDLIBS=-lm -lpthread -ldl -lz
++STDLIBS=-lm -lpthread -ldl -lz -lpng -lexpat -ljpeg
  DEVICE_DEVS=$(DD)x11.dev $(DD)x11alpha.dev $(DD)x11mono.dev $(DD)x11cmyk.dev $(DEVICES_DEVS) $(DD)bmpamono.dev $(DD)bmpa16m.dev
  endif
  
+--- ghostpcl_1.38p1/xps/xps_gcc.mak.orig	2008-01-09 18:23:58.000000000 +0100
++++ ghostpcl_1.38p1/xps/xps_gcc.mak	2008-04-25 16:08:18.000000000 +0200
+@@ -30,7 +30,7 @@
+ PNGSRCDIR?=../gs/libpng
+ EXPATSRCDIR?=../gs/expat
+ 
+-SHARE_EXPAT?=0
++SHARE_EXPAT?=1
+ EXPAT_CFLAGS=-DHAVE_MEMMOVE
+ 
+ # PLPLATFORM indicates should be set to 'ps' for language switch
