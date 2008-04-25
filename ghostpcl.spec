@@ -1,8 +1,15 @@
+# TODO:
+#	- prevent linking pspcl6 and pcl6 with expat
+#	- fix GS_LIB_DEFAULT path to gs_init.ps (pspcl6)
+#	  how about GS_DOT_VERSION?
+#	- rename urwfonts subpackage to font-TTF-urw
+#	- create alternate Type1 font subpackage:
+#	  http://mirror.cs.wisc.edu/pub/mirrors/ghost/AFPL/GhostPCL/urwfonts_t1-1.40.tar.bz2
 
 %define	urwfonts_ver	1.41
 
-Summary:	PostScript & PDF interpreter and renderer
-Summary(pl.UTF-8):	Interpreter i renderer PostScriptu i PDF
+Summary:	PostScript, PDF and XPS interpreter and renderer
+Summary(pl.UTF-8):	Interpreter i renderer PostScriptu, PDF oraz XPS
 Name:		ghostpcl
 Version:	1.52
 Release:	1
@@ -39,8 +46,7 @@ załączonej do pakietu.
 Summary:	URW fonts in TTF format for GhostPCL
 Summary(pl.UTF-8):	Fonty URW w formacie TTF dla GhostPCL-a
 License:	Alladin Free Public License
-Group:		Applications/Graphics
-Requires:	%{name} = %{version}-%{release}
+Group:		Fonts
 Requires(post,postun):	fontpostinst
 
 %description urwfonts
@@ -63,7 +69,7 @@ Fonty URW w formacie TTF dla GhostPCL-a.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/fonts/TTF}
-install language_switch/obj/pspcl6 main/obj/pcl6 xps/obj/gxps $RPM_BUILD_ROOT%{_bindir}
+install language_switch/obj/pspcl6 main/obj/pcl6 tools/pcl2pdfwr xps/obj/gxps $RPM_BUILD_ROOT%{_bindir}
 install urwfonts*/*.ttf $RPM_BUILD_ROOT%{_datadir}/fonts/TTF
 
 %clean
@@ -75,7 +81,7 @@ fontpostinst TTF
 %files
 %defattr(644,root,root,755)
 %doc README.txt doc/*
-%attr(755,root,root) %{_bindir}/pcl*
+%attr(755,root,root) %{_bindir}/*
 
 %files urwfonts
 %defattr(644,root,root,755)
