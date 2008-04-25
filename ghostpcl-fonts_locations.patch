@@ -5,7 +5,7 @@
     source table. */
  static const pjl_fontsource_t pjl_fontsource_table[] = {
 -    { "I", "fonts/;urwfonts/;/windows/fonts/;/win95/fonts/;/winnt/fonts/" },
-+    { "I", "/usr/share/ghostpcl/fonts/;/usr/share/fonts/TTF/" },
++    { "I", "/usr/share/fonts/Type1/;/usr/share/fonts/TTF/" },
      { "C", "CART0/", "" },
      { "C1", "CART1/", "" },
      { "C2", "CART2/", "" },
