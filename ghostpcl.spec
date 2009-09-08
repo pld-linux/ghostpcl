@@ -11,14 +11,14 @@
 Summary:	PostScript, PDF and XPS interpreter and renderer
 Summary(pl.UTF-8):	Interpreter i renderer PostScriptu, PDF oraz XPS
 Name:		ghostpcl
-Version:	1.52
-Release:	2
-License:	GPL
+Version:	1.54
+Release:	1
+License:	GPL v2
 Group:		Applications/Graphics
 #Source0:	http://mirror.cs.wisc.edu/pub/mirrors/ghost/GPL/ghostpdl/ghostpdl-%{version}.tar.bz2
 #Source0:	http://www.ctan.org/get/support/ghostscript/GPL/ghostpdl/ghostpdl-%{version}.tar.bz2
 Source0:	http://ghostscript.com/releases/ghostpdl-%{version}.tar.bz2
-# Source0-md5:	7bc095bd6fd67e52a758608accb23bef
+# Source0-md5:	228f96df51d192b95bc4d9340015aa9e
 #Source1:	http://mirror.cs.wisc.edu/pub/mirrors/ghost/AFPL/GhostPCL/urwfonts-%{urwfonts_ver}.tar.bz2
 Source1:	http://www.ctan.org/get/nonfree/support/ghostscript/AFPL/GhostPCL/urwfonts-%{urwfonts_ver}.tar.bz2
 # Source1-md5:	6d65230fa5e9783a0b5942b55dc5219f
