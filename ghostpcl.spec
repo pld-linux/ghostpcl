@@ -12,7 +12,7 @@ Summary:	PostScript, PDF and XPS interpreter and renderer
 Summary(pl.UTF-8):	Interpreter i renderer PostScriptu, PDF oraz XPS
 Name:		ghostpcl
 Version:	1.54
-Release:	7
+Release:	8
 License:	GPL v2
 Group:		Applications/Graphics
 #Source0:	http://mirror.cs.wisc.edu/pub/mirrors/ghost/GPL/ghostpdl/ghostpdl-%{version}.tar.bz2
@@ -24,6 +24,7 @@ Source1:	http://www.ctan.org/get/nonfree/support/ghostscript/AFPL/GhostPCL/urwfo
 # Source1-md5:	6d65230fa5e9783a0b5942b55dc5219f
 Patch0:		%{name}-fonts_locations.patch
 Patch1:		%{name}-make.patch
+Patch2:		%{name}-format-security.patch
 URL:		http://www.artifex.com/downloads/
 #BuildRequires:	XFree86-devel
 BuildRequires:	expat-devel
@@ -61,6 +62,7 @@ Fonty URW w formacie TTF dla GhostPCL-a.
 %setup -q -n ghostpdl-%{version} -a1
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__make} -j1 \
