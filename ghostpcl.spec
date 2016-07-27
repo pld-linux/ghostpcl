@@ -83,11 +83,41 @@ rm -rf $RPM_BUILD_ROOT
 %post urwfonts
 fontpostinst TTF
 
+%postun urwfonts
+fontpostinst TTF
+
 %files
 %defattr(644,root,root,755)
-%doc README.txt doc/*
-%attr(755,root,root) %{_bindir}/*
+%doc README.txt doc/ghostpdl.pdf
+%attr(755,root,root) %{_bindir}/gxps
+%attr(755,root,root) %{_bindir}/pcl2pdfwr
+%attr(755,root,root) %{_bindir}/pcl6
+%attr(755,root,root) %{_bindir}/pspcl6
 
 %files urwfonts
 %defattr(644,root,root,755)
-%{_datadir}/fonts/TTF
+%{_datadir}/fonts/TTF/A028-*.ttf
+%{_datadir}/fonts/TTF/A030-*.ttf
+%{_datadir}/fonts/TTF/AntiqueOlive-*.ttf
+%{_datadir}/fonts/TTF/ArtLinePrinter.ttf
+%{_datadir}/fonts/TTF/CenturySchL-*.ttf
+%{_datadir}/fonts/TTF/ClarendonURW-*.ttf
+%{_datadir}/fonts/TTF/Coronet.ttf
+%{_datadir}/fonts/TTF/Dingbats.ttf
+%{_datadir}/fonts/TTF/GaramondNo8-*.ttf
+%{_datadir}/fonts/TTF/LetterGothic-*.ttf
+%{_datadir}/fonts/TTF/Mauritius-*.ttf
+%{_datadir}/fonts/TTF/NimbusMonL-*.ttf
+%{_datadir}/fonts/TTF/NimbusMono-*.ttf
+%{_datadir}/fonts/TTF/NimbusRomNo9L-*.ttf
+%{_datadir}/fonts/TTF/NimbusRomanNo4-*.ttf
+%{_datadir}/fonts/TTF/NimbusRomanNo9-*.ttf
+%{_datadir}/fonts/TTF/NimbusSanL-*.ttf
+%{_datadir}/fonts/TTF/StandardSymL.ttf
+%{_datadir}/fonts/TTF/U001-*.ttf
+%{_datadir}/fonts/TTF/U001Con-*.ttf
+%{_datadir}/fonts/TTF/URWBookmanL-*.ttf
+%{_datadir}/fonts/TTF/URWChanceryL-*.ttf
+%{_datadir}/fonts/TTF/URWClassico-*.ttf
+%{_datadir}/fonts/TTF/URWGothicL-*.ttf
+%{_datadir}/fonts/TTF/URWPalladioL-*.ttf
