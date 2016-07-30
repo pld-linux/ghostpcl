@@ -2,11 +2,6 @@
 #	- prevent linking pspcl6 and pcl6 with expat
 #	- fix GS_LIB_DEFAULT path to gs_init.ps (pspcl6)
 #	  how about GS_DOT_VERSION?
-#	- rename urwfonts subpackage to font-TTF-urw
-#	- create alternate Type1 font subpackage:
-#	  http://mirror.cs.wisc.edu/pub/mirrors/ghost/AFPL/GhostPCL/urwfonts_t1-1.40.tar.bz2
-
-%define	urwfonts_ver	1.41
 
 Summary:	PostScript, PDF and XPS interpreter and renderer
 Summary(pl.UTF-8):	Interpreter i renderer PostScriptu, PDF oraz XPS
@@ -19,9 +14,6 @@ Group:		Applications/Graphics
 #Source0:	http://www.ctan.org/get/support/ghostscript/GPL/ghostpdl/ghostpdl-%{version}.tar.bz2
 Source0:	http://ghostscript.com/releases/ghostpdl-%{version}.tar.bz2
 # Source0-md5:	228f96df51d192b95bc4d9340015aa9e
-#Source1:	http://mirror.cs.wisc.edu/pub/mirrors/ghost/AFPL/GhostPCL/urwfonts-%{urwfonts_ver}.tar.bz2
-Source1:	http://www.ctan.org/get/nonfree/support/ghostscript/AFPL/GhostPCL/urwfonts-%{urwfonts_ver}.tar.bz2
-# Source1-md5:	6d65230fa5e9783a0b5942b55dc5219f
 Patch0:		%{name}-fonts_locations.patch
 Patch1:		%{name}-make.patch
 Patch2:		%{name}-format-security.patch
@@ -33,6 +25,7 @@ BuildRequires:	libpng-devel
 BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXt-devel
 BuildRequires:	zlib-devel
+Suggests:	fonts-TTF-urw
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -45,21 +38,8 @@ GhostPCL jest implementacją języków z rodzin PCL-5(TM) i PCL-XL(TM)
 opisujących stronę. Więcej informacji znajduje się w dokumentacji
 załączonej do pakietu.
 
-%package urwfonts
-Summary:	URW fonts in TTF format for GhostPCL
-Summary(pl.UTF-8):	Fonty URW w formacie TTF dla GhostPCL-a
-License:	Alladin Free Public License
-Group:		Fonts
-Requires(post,postun):	fontpostinst
-
-%description urwfonts
-URW fonts in TTF format for GhostPCL.
-
-%description urwfonts -l pl.UTF-8
-Fonty URW w formacie TTF dla GhostPCL-a.
-
 %prep
-%setup -q -n ghostpdl-%{version} -a1
+%setup -q -n ghostpdl-%{version}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
@@ -73,18 +53,11 @@ Fonty URW w formacie TTF dla GhostPCL-a.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/fonts/TTF}
+install -d $RPM_BUILD_ROOT%{_bindir}
 install language_switch/obj/pspcl6 main/obj/pcl6 tools/pcl2pdfwr xps/obj/gxps $RPM_BUILD_ROOT%{_bindir}
-install urwfonts*/*.ttf $RPM_BUILD_ROOT%{_datadir}/fonts/TTF
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%post urwfonts
-fontpostinst TTF
-
-%postun urwfonts
-fontpostinst TTF
 
 %files
 %defattr(644,root,root,755)
@@ -93,31 +66,3 @@ fontpostinst TTF
 %attr(755,root,root) %{_bindir}/pcl2pdfwr
 %attr(755,root,root) %{_bindir}/pcl6
 %attr(755,root,root) %{_bindir}/pspcl6
-
-%files urwfonts
-%defattr(644,root,root,755)
-%{_datadir}/fonts/TTF/A028-*.ttf
-%{_datadir}/fonts/TTF/A030-*.ttf
-%{_datadir}/fonts/TTF/AntiqueOlive-*.ttf
-%{_datadir}/fonts/TTF/ArtLinePrinter.ttf
-%{_datadir}/fonts/TTF/CenturySchL-*.ttf
-%{_datadir}/fonts/TTF/ClarendonURW-*.ttf
-%{_datadir}/fonts/TTF/Coronet.ttf
-%{_datadir}/fonts/TTF/Dingbats.ttf
-%{_datadir}/fonts/TTF/GaramondNo8-*.ttf
-%{_datadir}/fonts/TTF/LetterGothic-*.ttf
-%{_datadir}/fonts/TTF/Mauritius-*.ttf
-%{_datadir}/fonts/TTF/NimbusMonL-*.ttf
-%{_datadir}/fonts/TTF/NimbusMono-*.ttf
-%{_datadir}/fonts/TTF/NimbusRomNo9L-*.ttf
-%{_datadir}/fonts/TTF/NimbusRomanNo4-*.ttf
-%{_datadir}/fonts/TTF/NimbusRomanNo9-*.ttf
-%{_datadir}/fonts/TTF/NimbusSanL-*.ttf
-%{_datadir}/fonts/TTF/StandardSymL.ttf
-%{_datadir}/fonts/TTF/U001-*.ttf
-%{_datadir}/fonts/TTF/U001Con-*.ttf
-%{_datadir}/fonts/TTF/URWBookmanL-*.ttf
-%{_datadir}/fonts/TTF/URWChanceryL-*.ttf
-%{_datadir}/fonts/TTF/URWClassico-*.ttf
-%{_datadir}/fonts/TTF/URWGothicL-*.ttf
-%{_datadir}/fonts/TTF/URWPalladioL-*.ttf
